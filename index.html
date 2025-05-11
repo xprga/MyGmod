@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from Gammod.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 30 Apr 2025 16:02:01 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Download popular PlayStation mobile games including GTA 5, FIFA 25, God of War, Spider-Man 2 and more. Best mobile gaming experience with Gammod.">
+    <meta name="keywords" content="mobile games, PlayStation games, GTA 5 mobile, FIFA mobile, God of War mobile, Spider-Man mobile, gaming, Gammod">
+    <meta name="author" content="tarikelhamdi">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="creation-date" content="2025-03-06">
+    <meta name="last-modified" content="2025-03-06 23:04:14">
+    <meta name="owner" content="tarikelhamdi">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Gammod - Download PlayStation Games for Mobile">
+    <meta property="og:description" content="Download and play PlayStation games on your mobile device. Get access to GTA 5, FIFA 25, God of War, and more!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="index.html">
+    <meta property="og:image" content="images/og-image.html">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gammod - Mobile Gaming Platform">
+    <meta name="twitter:description" content="Download and play PlayStation games on your mobile device">
+    <meta name="twitter:image" content="images/twitter-card.html">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="index.html">
+
+
+    <title>Gammod - Download PlayStation Games for Mobile</title>
+
+    <style>
+        /* Modern Variables */
+        :root {
+           --primary: #131ebb;
+            --secondary: #f94144;
+            --background: #00000000;
+            --surface: #1e293b;
+            --text: #293f97;
+            --text-secondary: #d8dbdf;
+            --accent: #4914db;
+            --radius: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(111, 107, 107, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(31, 30, 30, 0.967);
+            height: 70px;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            height: 100vh;
+            width: 80%;
+            max-width: 400px;
+            background: var(--surface);
+            padding: 2rem;
+            transition: 0.3s ease;
+            z-index: 1000;
+        }
+
+        .nav-menu.active {
+            right: 0;
+        }
+
+        .menu-items {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .menu-items li {
+            margin: 1.5rem 0;
+        }
+
+        .menu-items a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .menu-toggle {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Slider Styles */
+        .slider-section {
+            margin: 90px auto 20px;
+            padding: 0;
+            max-width: 1200px;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius);
+        }
+
+        .slider {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .slider {
+                height: 200px;
+            }
+            
+            .slider-section {
+                margin: 80px auto 20px;
+            }
+            
+            header {
+                height: 60px;
+            }
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-content {
+            text-align: center;
+            color: var(--text);
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: var(--radius);
+            max-width: 80%;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .slide.active .slide-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .slide-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .slide-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        .slide-description {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .slide-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .slide-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+		        .slider-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .slider-arrow:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .slider-arrow.prev {
+            left: 20px;
+        }
+
+        .slider-arrow.next {
+            right: 20px;
+        }
+
+        .slider-arrow svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        /* Main Content & Games Grid */
+        main {
+            max-width: 1200px;
+            margin: 20px auto 0;
+            padding: 0 1rem;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            padding: 0.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .games-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        /* Game Card Styles */
+        .game-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            box-shadow: var(--shadow);
+            animation: fadeInUp 0.6s ease backwards;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-card a {
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .game-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .game-card:hover .game-image {
+            transform: scale(1.05);
+        }
+
+        .game-info {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .game-title {
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 2.8em;
+            line-height: 1.4;
+        }
+
+        .download-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .download-btn:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s ease;
+            z-index: 999;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--surface);
+            margin-top: 3rem;
+            padding: 2rem 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .footer-section h3 {
+            color: var(--text);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<script type="text/javascript">
+    var mtQHD_igs_FVISKc={"it":4481665,"key":"a3a41"};
+</script>
+<script src="https://d2yc6hxtq0phup.cloudfront.net/6a7412d.js"></script>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Gammod</a>
+            <div class="menu-toggle" id="menuToggle">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-menu" id="navMenu">
+        <ul class="menu-items">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#popular">Games</a></li>
+            <li><a href="#new">New</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Slider Section -->
+    <div class="slider-section">
+        <div class="slider">
+            <div class="slide active" style="background-image: url('images/slider/gta55.jpg')">
+                <div class="slide-content">
+                    <h2 class="slide-title">GTA 5 Mobile</h2>
+                    <p class="slide-description">Experience the epic world of Los Santos on your mobile device</p>
+                    <a href="game/gta-5-mobile.html" class="slide-button">Download Now</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/slider/god.webp')">
+                <div class="slide-content">
+                    <h2 class="slide-title">God of War Mobile</h2>
+                    <p class="slide-description">Join Kratos in an epic Norse adventure</p>
+                    <a href="game/God-of-War-Mobile.html" class="slide-button">Download Now</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/slider/sp.jpg')">
+                <div class="slide-content">
+                    <h2 class="slide-title">Spider-Man 2 Mobile</h2>
+                    <p class="slide-description">Swing through New York City as Spider-Man</p>
+                    <a href="game/Spider-Man-2-Mobile.html" class="slide-button">Download Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="slider-nav">
+            <div class="slider-dot active"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+        </div>
+        <div class="slider-arrow prev">
+            <svg viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+            </svg>
+        </div>
+        <div class="slider-arrow next">
+            <svg viewBox="0 0 24 24">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+        </div>
+    </div>
+
+
+    <main>
+        <div class="games-grid">
+            <!-- GTA 5 Mobile -->
+            <article class="game-card">
+                <a href="game/gta-5-mobile.html">
+                    <img src="images/icon/gta5.jpg" alt="GTA 5 Mobile" class="game-image" loading="lazy">
+                    <div class="game-info">
+                        <h2 class="game-title">GTA 5 Mobile</h2>
+                        <div class="download-btn">Download Now</div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- PUBG Mobile Mod -->
+            <article class="game-card">
+                <a href="game/PUBG-Mobile-Mod.html">
+                    <img src="images/icon/pubg.jpg" alt="PUBG Mobile Mod" class="game-image" loading="lazy">
+                    <div class="game-info">
+                        <h2 class="game-title">PUBG Mobile Mod</h2>
+                        <div class="download-btn">Download Now</div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Free Fire Mod -->
+            <article class="game-card">
+                <a href="game/Free-Fire-Mod.html">
+                    <img src="images/icon/freefire.jpg" alt="Free Fire Mod" class="game-image" loading="lazy">
+                    <div class="game-info">
+                        <h2 class="game-title">Free Fire Mod</h2>
+                        <div class="download-btn">Download Now</div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- FIFA 25 Mobile -->
+            <article class="game-card">
+                <a href="game/FIFA-25-Mobile.html">
+                    <img src="images/icon/dls25.jpg" alt="FIFA 25 Mobile" class="game-image" loading="lazy">
+                    <div class="game-info">
+                        <h2 class="game-title">FIFA 25 Mobile</h2>
+                        <div class="download-btn">Download Now</div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- GTA 6 Mobile -->
+            <article class="game-card">
+                <a href="game/gta-6-mobile.html">
+                    <img src="images/icon/gta6.png" alt="GTA 6 Mobile" class="game-image" loading="lazy">
+                    <div class="game-info">
+                        <h2 class="game-title">GTA 6 Mobile</h2>
+                        <div class="download-btn">Download Now</div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- League of Legends Mobile -->
+            <article class="game-card">
+                <a href="game/League-of-Legends-Mobile.html">
+                    <img src="images/icon/lol.jpg" alt="League of Legends Mobile" class="game-image" loading="lazy">
+                    <div class="game-info">
+                        <h2 class="game-title">League of Legends Mobile</h2>
+                        <div class="download-btn">Download Now</div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- God of War Mobile -->
+            <article class="game-card">
+                <a href="game/God-of-War-Mobile.html">
+                    <img src="images/icon/gow.jpg" alt="God of War Mobile" class="game-image" loading="lazy">
+                    <div class="game-info">
+                        <h2 class="game-title">God of War Mobile</h2>
+                        <div class="download-btn">Download Now</div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Spider-Man 2 Mobile -->
+            <article class="game-card">
+                <a href="game/Spider-Man%202-Mobile.html">
+                    <img src="images/icon/spiderman2.png" alt="Spider-Man 2 Mobile" class="game-image" loading="lazy">
+                    <div class="game-info">
+                        <h2 class="game-title">Spider-Man 2 Mobile</h2>
+						<div class="download-btn">Download Now</div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Elden Ring Mobile -->
+            <article class="game-card">
+                <a href="game/Elden-Ring-Mobile.html">
+                    <img src="images/icon/eldenring.jpg" alt="Elden Ring Mobile" class="game-image" loading="lazy">
+                    <div class="game-info">
+                        <h2 class="game-title">Elden Ring Mobile</h2>
+                        <div class="download-btn">Download Now</div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- The Last of Us Mobile -->
+            <article class="game-card">
+                <a href="game/The-Last-of-Us-Mobile.html">
+                    <img src="images/icon/tlou.jpg" alt="The Last of Us Mobile" class="game-image" loading="lazy">
+                    <div class="game-info">
+                        <h2 class="game-title">The Last of Us Mobile</h2>
+                        <div class="download-btn">Download Now</div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Horizon Zero Dawn Mobile -->
+            <article class="game-card">
+                <a href="game/Horizon-Zero-Dawn-Mobile.html">
+                    <img src="images/icon/horizon.jpg" alt="Horizon Zero Dawn Mobile" class="game-image" loading="lazy">
+                    <div class="game-info">
+                        <h2 class="game-title">Horizon Zero Dawn Mobile</h2>
+                        <div class="download-btn">Download Now</div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Red Dead Redemption 2 Mobile -->
+            <article class="game-card">
+                <a href="game/Red-Dead-Redemption-2-Mobile.html">
+                    <img src="images/icon/rdr2.jpg" alt="Red Dead Redemption 2 Mobile" class="game-image" loading="lazy">
+                    <div class="game-info">
+                        <h2 class="game-title">Red Dead Redemption 2 Mobile</h2>
+                        <div class="download-btn">Download Now</div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Fortnite IOS / Android -->
+            <article class="game-card">
+                <a href="game/Fortnite-IOS-Android.html">
+                    <img src="images/icon/fortnite.jpg" alt="Fortnite IOS / Android" class="game-image" loading="lazy">
+                    <div class="game-info">
+                        <h2 class="game-title">Fortnite IOS / Android</h2>
+                        <div class="download-btn">Download Now</div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- PES 2025 -->
+            <article class="game-card">
+                <a href="game/PES-2025.html">
+                    <img src="images/icon/pes2025.jpg" alt="PES 2025" class="game-image" loading="lazy">
+                    <div class="game-info">
+                        <h2 class="game-title">PES 2025</h2>
+                        <div class="download-btn">Download Now</div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Roblox Mod -->
+            <article class="game-card">
+                <a href="game/Roblox-Mod.html">
+                    <img src="images/icon/roblox.png" alt="Roblox Mod" class="game-image" loading="lazy">
+                    <div class="game-info">
+                        <h2 class="game-title">Roblox Mod</h2>
+                        <div class="download-btn">Download Now</div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- GTA 4 Mobile -->
+            <article class="game-card">
+                <a href="game/gta-4-mobile.html">
+                    <img src="images/icon/gta4.jpg" alt="GTA 4 Mobile" class="game-image" loading="lazy">
+                    <div class="game-info">
+                        <h2 class="game-title">GTA 4 Mobile</h2>
+                        <div class="download-btn">Download Now</div>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#popular">Popular Games</a></li>
+                    <li><a href="#new">New Releases</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="#action">Action Games</a></li>
+                    <li><a href="#racing">Racing Games</a></li>
+                    <li><a href="#sports">Sports Games</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <ul class="footer-links">
+                    <li><a href="#twitter">Twitter</a></li>
+                    <li><a href="#discord">Discord</a></li>
+                    <li><a href="#youtube">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Gammod. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Toggle Functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const overlay = document.getElementById('overlay');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        // Slider Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            const prevButton = document.querySelector('.slider-arrow.prev');
+            const nextButton = document.querySelector('.slider-arrow.next');
+            let currentSlide = 0;
+            const slideCount = slides.length;
+
+            function updateSlider() {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlider();
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                updateSlider();
+            }
+
+            // Auto slide
+            let slideInterval = setInterval(nextSlide, 5000);
+
+            // Event listeners
+            prevButton.addEventListener('click', () => {
+                prevSlide();
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+
+            nextButton.addEventListener('click', () => {
+                nextSlide();
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSlider();
+                    clearInterval(slideInterval);
+                    slideInterval = setInterval(nextSlide, 5000);
+                });
+            });
+        });
+
+        // Lazy Loading Images
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            const imageOptions = {
+                threshold: 0.1,
+                rootMargin: "50px"
+            };
+
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.src;
+                        observer.unobserve(img);
+                    }
+                });
+            }, imageOptions);
+
+            images.forEach(img => imageObserver.observe(img));
+        });
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"938842d42ba1e288","version":"2025.4.0-1-g37f21b1","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"33c075704b2a4048b5f3c15dc8dca6cd","b":1}' crossorigin="anonymous"></script>
+</body>
+
+<!-- Mirrored from Gammod.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 30 Apr 2025 16:02:13 GMT -->
+</html>
